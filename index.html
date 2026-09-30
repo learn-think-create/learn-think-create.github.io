@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning App - Learn, Think & Create</title>
+    <title>Learn, Think &amp; Create | Learning App</title>
+    <meta name="description" content="Learn, Think & Create is an educational Android learning experiment for Grade VI–X students, teachers and early participants. Learn, practice, participate in quizzes and track learning progress.">
     <style>
         :root {
             --primary: #4F46E5;
@@ -27,18 +28,19 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
-            padding: 16px 40px;
+            padding: 12px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -58,23 +60,25 @@
         }
 
         .logo-icon {
-            background: var(--primary);
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.18);
+            flex-shrink: 0;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .nav-links {
             display: flex;
             gap: 24px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -85,9 +89,7 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+        .nav-links a:hover { color: var(--primary); }
 
         .btn-nav {
             background: var(--primary);
@@ -95,7 +97,6 @@
             padding: 8px 18px;
             border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
-            transition: all 0.2s;
         }
 
         .btn-nav:hover {
@@ -103,9 +104,8 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section */
         .hero {
-            padding: 80px 40px 100px 40px;
+            padding: 70px 50px 85px 50px;
             background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
             display: flex;
             align-items: center;
@@ -132,7 +132,7 @@
 
         .hero-content {
             flex: 1;
-            max-width: 550px;
+            max-width: 570px;
             z-index: 1;
         }
 
@@ -154,18 +154,26 @@
             font-weight: 800;
             color: var(--primary-dark);
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
+        }
+
+        .hero .tagline {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 18px;
         }
 
         .hero p {
             font-size: 18px;
             color: var(--text-light);
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .hero-btns {
             display: flex;
             gap: 16px;
+            flex-wrap: wrap;
         }
 
         .btn-hero {
@@ -203,91 +211,24 @@
         }
 
         .hero-mockup {
-            flex: 1;
+            flex: 0 0 410px;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1;
+            padding-left: 25px;
         }
 
-        /* Mockup Phone */
-        .phone-frame {
-            background: #1E293B;
-            border: 12px solid #0F172A;
-            border-radius: 36px;
-            width: 280px;
-            height: 560px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        .app-screenshot {
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 38px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            filter: drop-shadow(0 25px 30px rgba(15, 23, 42, 0.25));
         }
 
-        .phone-notch {
-            background: #0F172A;
-            height: 24px;
-            width: 140px;
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-
-        .phone-content {
-            flex: 1;
-            background: #F5F3FF;
-            padding: 40px 16px 16px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .phone-card {
-            background: white;
-            padding: 14px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .phone-logo {
-            align-self: center;
-            margin-top: 10px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .phone-input {
-            height: 36px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: #F8FAFC;
-        }
-
-        .phone-btn {
-            height: 38px;
-            background: var(--primary);
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Features Section */
         .section {
             max-width: 1100px;
             margin: 0 auto;
@@ -296,7 +237,7 @@
 
         .section-header {
             text-align: center;
-            max-width: 600px;
+            max-width: 680px;
             margin: 0 auto 50px auto;
         }
 
@@ -358,7 +299,129 @@
             font-size: 14px;
         }
 
-        /* Interactive Element Highlight (Periodic Table Showcase) */
+        .intro-panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02);
+        }
+
+        .intro-panel h3 {
+            font-size: 26px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .intro-panel p {
+            color: var(--text-light);
+            margin-bottom: 14px;
+        }
+
+        .mission-box {
+            background: var(--primary-light);
+            border-radius: 18px;
+            padding: 25px;
+            border: 1px solid #C7D2FE;
+        }
+
+        .mission-box strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .mission-box span {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .step {
+            text-align: center;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 12px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .step h4 {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .step p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .progress-panel {
+            background: linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%);
+            border: 1px solid #C7D2FE;
+            border-radius: 24px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .progress-panel h3 {
+            font-size: 26px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .progress-panel p {
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
+
+        .track-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .track-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .track-item span:last-child {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
         .periodic-showcase {
             background: white;
             border: 1px solid var(--border);
@@ -371,15 +434,18 @@
             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02);
         }
 
-        .periodic-content {
-            flex: 1;
-        }
+        .periodic-content { flex: 1; }
 
         .periodic-content h3 {
             font-size: 24px;
             color: var(--primary-dark);
             margin-bottom: 12px;
             font-weight: 800;
+        }
+
+        .periodic-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
         }
 
         .periodic-grid-mock {
@@ -416,7 +482,73 @@
             opacity: 0.8;
         }
 
-        /* Legal / Privacy Portal Section */
+        .roles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .role-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 26px;
+            border-radius: 16px;
+        }
+
+        .role-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .role-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .role-card ul {
+            margin: 14px 0 0 18px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .early-testing {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 45px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02);
+        }
+
+        .early-testing h2 {
+            color: var(--primary-dark);
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .early-testing p {
+            color: var(--text-light);
+            max-width: 720px;
+            margin: 0 auto 20px;
+        }
+
+        .participant-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin: 22px 0 28px;
+        }
+
+        .participant-tags span {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 7px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
         .portal {
             background: white;
             border-top: 1px solid var(--border);
@@ -468,7 +600,6 @@
             color: var(--primary);
         }
 
-        /* Footer */
         footer {
             background: #0F172A;
             color: #94A3B8;
@@ -477,91 +608,160 @@
             font-size: 14px;
         }
 
-        footer strong {
-            color: white;
-        }
+        footer strong { color: white; }
 
         footer a {
             color: #38BDF8;
             text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        footer a:hover { text-decoration: underline; }
+
+        .tiny-note {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+            .roles { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 16px 20px;
-            }
-            .nav-links {
-                display: none;
-            }
+            nav { padding: 12px 20px; }
+
+            .nav-links { display: none; }
+
             .hero {
                 flex-direction: column;
-                padding: 40px 20px;
+                padding: 40px 20px 50px;
                 text-align: center;
-                gap: 40px;
+                gap: 30px;
             }
-            .hero-btns {
-                justify-content: center;
+
+            .hero h1 { font-size: 39px; }
+
+            .hero p { font-size: 16px; }
+
+            .hero-btns { justify-content: center; }
+
+            .hero-mockup {
+                flex: auto;
+                padding-left: 0;
             }
+
+            .app-screenshot { width: 275px; }
+
+            .intro-panel,
+            .progress-panel {
+                grid-template-columns: 1fr;
+            }
+
             .periodic-showcase {
                 flex-direction: column;
                 padding: 24px;
                 text-align: center;
             }
+
             .periodic-grid-mock {
                 margin: 0 auto;
             }
-            .portal-grid {
-                grid-template-columns: 1fr;
-            }
+
+            .portal-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .section { padding: 60px 16px; }
+            .section-header h2 { font-size: 28px; }
+            .steps { grid-template-columns: 1fr; }
+            .early-testing { padding: 30px 20px; }
+            .hero { margin-top: 20px; }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation -->
     <nav>
         <a href="#" class="logo">
-            <div class="logo-icon">L</div>
+            <div class="logo-icon">
+                <img src="assets/app-logo.png" alt="Learn, Think & Create app logo">
+            </div>
             Learning App
         </a>
+
         <ul class="nav-links">
+            <li><a href="#about">About</a></li>
             <li><a href="#features">Features</a></li>
+            <li><a href="#progress">Learning Progress</a></li>
             <li><a href="#periodic-table">Periodic Table</a></li>
             <li><a href="#privacy">Privacy &amp; Safety</a></li>
-            <li><a href="#delete-account" class="btn-nav">Account Control</a></li>
+            <li><a href="#join" class="btn-nav">Join the Experiment</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-tag">🎓 Personalized Educational Platform</span>
+            <span class="hero-tag">🎓 Educational Android App • Early Testing</span>
             <h1>Learn, Think &amp; Create</h1>
-            <p>Empowering grade VI to X students with interactive science and math modules, dynamic classroom connections, and visual learning tools.</p>
+            <div class="tagline">Learn. Understand. Create.</div>
+            <p>
+                A simple, engaging learning environment for Grade VI–X students,
+                teachers and other early participants — designed to help learners
+                study, practise, participate in quizzes and track their progress.
+            </p>
             <div class="hero-btns">
                 <a href="#features" class="btn-hero btn-primary">Discover Features</a>
-                <a href="#privacy" class="btn-hero btn-secondary">Privacy &amp; Safety</a>
+                <a href="#join" class="btn-hero btn-secondary">Join the Experiment</a>
             </div>
+            <div class="tiny-note">Currently in an early testing phase • Free to use during the experiment</div>
         </div>
+
         <div class="hero-mockup">
-            <div class="phone-frame">
-                <div class="phone-notch"></div>
-                <div class="phone-content">
-                    <div class="phone-logo">L</div>
-                    <p style="text-align:center; font-weight:800; font-size:16px; color:#1E1B4B; margin-bottom:10px;">Welcome Back</p>
-                    <div class="phone-card">
-                        <div class="phone-input" style="margin-bottom:10px;"></div>
-                        <div class="phone-input" style="margin-bottom:15px;"></div>
-                        <div class="phone-btn">Log In</div>
-                    </div>
-                    <div class="phone-card" style="text-align:center; font-size:10px; color:#6B7280; padding:10px;">
-                        Interactive Chemistry &amp; Mathematics
-                    </div>
-                </div>
+            <img class="app-screenshot"
+                 src="assets/app-screenshot.png"
+                 alt="Learn, Think & Create Android app welcome screen">
+        </div>
+    </section>
+
+    <!-- About / Vision -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2>An Educational Experiment</h2>
+            <p>
+                The project explores how a technology-enabled learning environment can
+                make learning more engaging while continuously measuring progress.
+            </p>
+        </div>
+
+        <div class="intro-panel">
+            <div>
+                <h3>Track → Measure → Change</h3>
+                <p>
+                    The long-term vision is to move beyond simply providing questions
+                    and answers. The platform is intended to help understand how students
+                    are learning, identify areas of difficulty and support more targeted
+                    intervention.
+                </p>
+                <p>
+                    The initial focus is on Science, Mathematics, General Knowledge and
+                    other subjects suitable for school students in Grade VI–X.
+                </p>
+            </div>
+
+            <div class="mission-box">
+                <strong>Our two central objectives</strong>
+                <span>
+                    Track, measure and improve learning — while creating high-quality,
+                    engaging and useful educational content.
+                </span>
             </div>
         </div>
     </section>
@@ -570,41 +770,149 @@
     <section class="section" id="features">
         <div class="section-header">
             <h2>Key App Features</h2>
-            <p>Designed with student simplicity and robust teacher interaction in mind.</p>
+            <p>
+                Designed around student simplicity, teacher participation and
+                measurable learning progress.
+            </p>
         </div>
+
         <div class="grid">
             <div class="card-feature">
                 <div class="feature-icon">📝</div>
-                <h3>Personalized Quizzes</h3>
-                <p>Access customized assignments created directly by your teachers or default academic curricula to level up your skills.</p>
+                <h3>Interactive Quizzes</h3>
+                <p>
+                    Students can access default quizzes as well as quizzes created or
+                    assigned by teachers and administrators. Each attempt is tracked separately.
+                </p>
             </div>
+
+            <div class="card-feature">
+                <div class="feature-icon">⏱️</div>
+                <h3>Timed Practice</h3>
+                <p>
+                    A quiz timer starts automatically. The current configuration supports
+                    up to 20 minutes for 20 questions, while the system remains adaptable.
+                </p>
+            </div>
+
+            <div class="card-feature">
+                <div class="feature-icon">🔁</div>
+                <h3>Multiple Attempts</h3>
+                <p>
+                    Students can retry quizzes and build a history of participation,
+                    scores and improvement between attempts.
+                </p>
+            </div>
+
             <div class="card-feature">
                 <div class="feature-icon">🔗</div>
-                <h3>Classroom Connection</h3>
-                <p>Send secure access requests to classroom teachers to view homework materials and receive dedicated study contents.</p>
+                <h3>Teacher Connection</h3>
+                <p>
+                    Students can request to join a teacher. Once approved, the teacher
+                    can support associated students and share educational content.
+                </p>
             </div>
+
             <div class="card-feature">
                 <div class="feature-icon">📚</div>
-                <h3>Rich Reading Material</h3>
-                <p>Review comprehensive books, PDF assets, and teacher-assigned educational documents right inside the integrated PDF viewer.</p>
+                <h3>Learning Materials</h3>
+                <p>
+                    The platform can provide books, PDFs and teacher-assigned educational
+                    material alongside quizzes and other learning resources.
+                </p>
             </div>
+
             <div class="card-feature">
-                <div class="feature-icon">🧬</div>
-                <h3>Interactive Periodic Table</h3>
-                <p>Explore chemical elements, discover properties, and master elementary chemistry with a highly visual, element-by-element grid.</p>
+                <div class="feature-icon">🔐</div>
+                <h3>Email OTP Login</h3>
+                <p>
+                    Authentication currently uses an email One-Time Password, avoiding
+                    the need for users to create and remember a traditional password.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Periodic Table Showcase Section -->
+    <!-- Student Journey -->
+    <section class="section" style="padding-top:0;" id="journey">
+        <div class="section-header">
+            <h2>From Registration to Learning</h2>
+            <p>A simple onboarding path keeps the experience focused on learning.</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Express Interest</h4>
+                <p>Share your Gmail address to participate in testing.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Registration</h4>
+                <p>Create your learning profile using email authentication.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Approval</h4>
+                <p>Complete the relevant access or teacher approval step.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Select Grade</h4>
+                <p>Students select their Grade VI–X class.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>Start Learning</h4>
+                <p>Read, practise, take quizzes and track progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Progress -->
+    <section class="section" id="progress">
+        <div class="progress-panel">
+            <div>
+                <h3>Learning Should Be Measurable</h3>
+                <p>
+                    The platform is designed to look beyond a single final score and
+                    build a clearer picture of learning over time.
+                </p>
+                <p>
+                    The broader goal is to identify where a learner may need additional
+                    attention or intervention.
+                </p>
+            </div>
+
+            <div class="track-list">
+                <div class="track-item"><span>Quiz participation</span><span>✓</span></div>
+                <div class="track-item"><span>Number of attempts</span><span>✓</span></div>
+                <div class="track-item"><span>Scores</span><span>✓</span></div>
+                <div class="track-item"><span>Improvement between attempts</span><span>↗</span></div>
+                <div class="track-item"><span>Areas of difficulty</span><span>◎</span></div>
+                <div class="track-item"><span>Learning progress over time</span><span>↗</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Periodic Table Showcase -->
     <section class="section" style="padding-top:0;" id="periodic-table">
         <div class="periodic-showcase">
             <div class="periodic-content">
-                <h3>Visual Chemistry Lab</h3>
-                <p style="color: var(--text-light); margin-bottom: 20px;">Explore and inspect detailed chemical statistics of the entire periodic table natively within the app. Our visual chemistry module helps students understand groups, atomic properties, and weights at a glance.</p>
-                <a href="#features" class="btn-portal">See Module Features</a>
+                <h3>🔬 Visual Chemistry Lab</h3>
+                <p>
+                    Explore chemical elements through a visual periodic-table experience.
+                    The chemistry module is designed to make groups, atomic properties and
+                    related information easier to explore and understand.
+                </p>
+                <a href="#features" class="btn-portal">Explore App Features</a>
             </div>
-            <div class="periodic-grid-mock">
+
+            <div class="periodic-grid-mock" aria-label="Periodic table sample">
                 <div class="element-card" style="background:#FEE2E2; border-color:#FCA5A5; color:#991B1B;">
                     <div class="element-symbol">H</div>
                     <div class="element-name">Hydrogen</div>
@@ -621,23 +929,138 @@
                     <div class="element-symbol">Be</div>
                     <div class="element-name">Beryllium</div>
                 </div>
+                <div class="element-card">
+                    <div class="element-symbol">B</div>
+                    <div class="element-name">Boron</div>
+                </div>
+                <div class="element-card">
+                    <div class="element-symbol">C</div>
+                    <div class="element-name">Carbon</div>
+                </div>
+                <div class="element-card">
+                    <div class="element-symbol">N</div>
+                    <div class="element-name">Nitrogen</div>
+                </div>
+                <div class="element-card">
+                    <div class="element-symbol">O</div>
+                    <div class="element-name">Oxygen</div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Who Participates -->
+    <section class="section" id="participants">
+        <div class="section-header">
+            <h2>Who Can Participate?</h2>
+            <p>
+                The project is community-driven. Different participants can contribute
+                in different ways as the platform develops.
+            </p>
+        </div>
+
+        <div class="roles">
+            <div class="role-card">
+                <h3>🎓 Students</h3>
+                <p>Learners can practise, participate in quizzes and provide real-world feedback.</p>
+                <ul>
+                    <li>Grade VI–X learning</li>
+                    <li>Quiz participation</li>
+                    <li>Progress and attempt history</li>
+                </ul>
+            </div>
+
+            <div class="role-card">
+                <h3>👩‍🏫 Teachers</h3>
+                <p>Approved teachers can contribute content and support students associated with them.</p>
+                <ul>
+                    <li>Create and share quizzes</li>
+                    <li>Assign quizzes</li>
+                    <li>Review participation and performance</li>
+                </ul>
+            </div>
+
+            <div class="role-card">
+                <h3>🧑‍💻 Contributors</h3>
+                <p>Other participants can help improve technology, content quality and community outreach.</p>
+                <ul>
+                    <li>Developers &amp; AI/ML contributors</li>
+                    <li>Content creators &amp; reviewers</li>
+                    <li>Volunteers &amp; outreach supporters</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Early Testing -->
+    <section class="section" id="join">
+        <div class="early-testing">
+            <h2>Join the Early Testing Programme</h2>
+            <p>
+                The application is currently an educational experiment rather than a
+                commercial product. Early participants can help identify bugs, improve
+                usability and stability, evaluate quizzes and suggest useful features
+                and educational content.
+            </p>
+
+            <div class="participant-tags">
+                <span>STUDENT</span>
+                <span>TEACHER</span>
+                <span>DEVELOPER</span>
+                <span>CONTENT CREATOR</span>
+                <span>MODERATOR</span>
+                <span>VOLUNTEER</span>
+                <span>OUTREACH</span>
+                <span>SUPPORTER</span>
+            </div>
+
+            <a href="mailto:learnthinkc@gmail.com?subject=Interest%20in%20Learn%2C%20Think%20%26%20Create"
+               class="btn-hero btn-primary">
+                Express Your Interest
+            </a>
+
+            <p class="tiny-note">
+                Share your Gmail address by email if you would like access to the testing version.
+            </p>
         </div>
     </section>
 
     <!-- Privacy & Account Control Portal -->
     <section class="portal" id="privacy">
         <div class="portal-container">
+            <div class="section-header" style="margin-bottom:40px;">
+                <h2>Privacy, Safety &amp; Account Control</h2>
+                <p>
+                    Privacy-conscious development is an important principle of the project.
+                </p>
+            </div>
+
             <div class="portal-grid">
                 <div class="portal-card">
                     <h3>Data Privacy Statement</h3>
-                    <p>Learning App takes security and privacy seriously. All data transmitted between the app and Cloud Firestore is fully encrypted in transit. We collect minimal user details (email and display name) strictly to power app functions and track user study progress. We never sell, share, or broker your personal information.</p>
-                    <a href="#" class="btn-portal">Full Privacy Policy</a>
+                    <p>
+                        User data is intended to be used for app functions and learning
+                        progress. The project does not intend to share user data with
+                        third parties for commercial, advertising or unrelated purposes.
+                    </p>
+                    <p>
+                        Users can request deletion of their data if they wish to leave
+                        the project or have their information removed.
+                    </p>
+                    <a href="#" class="btn-portal">Privacy Information</a>
                 </div>
+
                 <div class="portal-card" id="delete-account">
-                    <h3>Account Deletion Portal</h3>
-                    <p>In compliance with Google Play Store policies, if you wish to permanently delete your registered account and erase all associated records, you can do so directly within the app's profile screen. Alternatively, click below to submit an online deletion request.</p>
-                    <a href="mailto:learnthinkc@gmail.com?subject=Account%20Deletion%20Request%20-%20Learning%20App" class="btn-portal" style="background:var(--primary-light); color:var(--primary); border-color:var(--primary);">Request Account Deletion</a>
+                    <h3>Account Deletion</h3>
+                    <p>
+                        Users who wish to permanently delete their registered account
+                        and associated records can raise a deletion request.
+                    </p>
+                    <a href="mailto:learnthinkc@gmail.com?subject=Account%20Deletion%20Request%20-%20Learn%2C%20Think%20%26%20Create"
+                       class="btn-portal"
+                       style="background:var(--primary-light); color:var(--primary); border-color:var(--primary);">
+                        Request Account Deletion
+                    </a>
                 </div>
             </div>
         </div>
@@ -645,8 +1068,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <strong>Learning App</strong>. Learn, Think &amp; Create. All Rights Reserved.</p>
-        <p style="margin-top: 10px; font-size:12px; opacity:0.7;">Official support: <a href="mailto:learnthinkc@gmail.com">learnthinkc@gmail.com</a></p>
+        <p>&copy; 2026 <strong>Learn, Think &amp; Create</strong>. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size:12px; opacity:0.7;">
+            Official support:
+            <a href="mailto:learnthinkc@gmail.com">learnthinkc@gmail.com</a>
+        </p>
     </footer>
 
 </body>
